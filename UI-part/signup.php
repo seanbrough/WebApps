@@ -10,16 +10,16 @@ require_once "header.php";
   <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-  <form class="sign-up" action="signup_handler.php" method="POST">
+  <form class="sign-up" action="signup_handler.php" method="POST" onsubmit="return validate_reg_form(this)">
     <h1 class="sign-up-title">Sign up to own your business vcards</h1>
     <label for="email" class = "label">Email Address</label>
-    <input type="text" class="sign-up-input" name = "email" placeholder="Please Enter your email" >
+    <input type="text" class="sign-up-input" id = "inputEmail" name = "email" placeholder="Please Enter your email" >
     <br>
     <label for="password" class = "label">Password</label>
-    <input type="password" class="sign-up-input" name = "password" placeholder="Enter a password">
+    <input type="password" class="sign-up-input" id = "inputPassword" name = "password" placeholder="Enter a password">
     <br>
     <label for="Confirm_password" class = "label">Confirm Password</label>
-    <input type="password" class="sign-up-input" name = "Confirm_password" placeholder="Confirm the password">
+    <input type="password" class="sign-up-input" id = "inputConfirmPassword" name = "Confirm_password" placeholder="Confirm the password">
     <br>
     <input type="submit" value="Sign up!" class="sign-up-button">
     <?php

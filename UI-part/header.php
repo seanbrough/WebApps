@@ -26,7 +26,7 @@ if(isset($_SESSION['luser']))
                 padding-bottom: 20px;
             }
         </style>
-      
+        <script type="text/javascript" src="utils.js"></script>  
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
