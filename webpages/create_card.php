@@ -1,13 +1,13 @@
 <?php
 require_once "header.php";
 
-//handle the form post here
-//create your form below. <form> tags already there for you...
+//Form to allow users to create new cards
+//Send form to class_card to create object and save to DB
 ?>
 <div class="container">
 <h2>Create a new card</h2>
 <div style="width:500px">
-    <form method="post" action="registration_handler.php">
+    <form method="post" action="class_card.php">
         First Name: <br>
         <input type="text" name="first_name">
         <br>
