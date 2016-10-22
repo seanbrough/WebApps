@@ -7,7 +7,7 @@ require_once "header.php";
 <div class="container">
 <h2>Create a new card</h2>
 <div style="width:500px">
-    <form method="post" action="class_card.php">
+    <form method="post" action="../webpages/class_card.php">
         First Name: <br>
         <input type="text" name="first_name">
         <br>
