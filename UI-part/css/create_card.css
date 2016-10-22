@@ -1,0 +1,98 @@
+
+body{
+   background-image: url('create_card.jpg');
+   background-size: cover; 
+   opacity: 0.9;
+}
+.page_container {
+	 background-color: #eee;
+	 text-align: center;
+	 height: auto;
+	 width:600px;
+	 margin:0px 350px;
+	 position: relative;
+	 
+	 font-family: "Trebuchet MS","Myriad Pro",Arial,sans-serif;
+}
+
+.Info {
+    display:inline-block;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.left {
+	float: left;
+	padding-left: 30px;
+}
+.right {
+	float: right;
+	padding-right: 20px;
+}
+
+
+
+
+
+
+h2{
+	font-size: 48px;
+	color: rgb(0,0,0);
+	font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+ 
+
+.label {
+  font-size: 16px;
+  color : #222222;
+  font-weight: bold;
+}
+.input {
+  width: 500;
+  height: 50px;
+  margin-top: 4px;
+  margin-bottom: 25px;
+  padding: 0 15px 2px;
+  font-size: 17px;
+  background: white;
+  border: 2px solid #ebebeb;
+  border: 1px solid rgb(178, 178, 178);
+}
+
+.button {
+	width: 30%;
+	cursor: pointer;	
+	background: rgb(61, 157, 179);
+	padding: 8px 5px;
+	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+	color: #fff;
+	font-size: 24px;	
+	border: 1px solid rgb(28, 108, 122);	
+	margin-bottom: 10px;	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;	
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	   -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	        box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	   -moz-transition: all 0.2s linear;
+	     -o-transition: all 0.2s linear;
+	        transition: all 0.2s linear;
+}
+
+
+
+
+
