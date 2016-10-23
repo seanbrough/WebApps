@@ -28,18 +28,21 @@ USE `vcard`;
 -- Table structure for table `Info`
 --
 
-CREATE TABLE `Info` (
+CREATE TABLE `card` (
   `id` int(10) UNSIGNED NOT NULL,
   `first_name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `company_name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `business_name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `company_addr` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `business_address` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `state` char(2) COLLATE utf8_unicode_ci NOT NULL,
   `zip` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `website` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci,
+  `creation_date` datetime NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -61,7 +64,7 @@ INSERT INTO `Info` (`id`, `first_name`, `last_name`, `company_name`, `title`, `c
 -- Table structure for table `card`
 --
 
-CREATE TABLE `card` (
+CREATE TABLE `info` (
   `id` int(10) UNSIGNED NOT NULL,
   `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `make_date` datetime NOT NULL,

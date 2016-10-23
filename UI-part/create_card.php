@@ -32,8 +32,17 @@ require_once "header.php";
         </div>
         
         <div class="right">
-        <p class = "label">Business Address: <br>
+        <p class = "label">Business Street Address: <br>
         <input type="text" class = "input" name="business_address"></p>
+        <br>
+        <p class = "label">City: <br>
+        <input type="text" class = "input" name="city"></p>
+        <br>
+        <p class = "label">State: <br>
+        <input type="text" class = "input" name="state"></p>
+        <br>
+        <p class = "label">ZipCode: <br>
+        <input type="text" class = "input" name="zipcode"></p>
         <br>
         <p class = "label">Business Website: <br>
         <input type="text" class = "input" name="business_website"></p>
