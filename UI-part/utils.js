@@ -18,3 +18,13 @@ function validate_reg_form(form){
           return true;
      }
 }
+
+function shareCard() {
+     var shareEmail = prompt("Share to user with this email address:");
+     if (shareEmail.length === 0){
+          alert("Please enter user's email address");
+     }
+     else {
+          document.getElementById('share_email').value = shareEmail
+     }
+}
