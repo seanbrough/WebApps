@@ -1,6 +1,6 @@
 <?php
 
-require_once "class_card.php";
+require_once "handlers/class_card.php";
 require_once "header.php";
 
 ?>
@@ -8,7 +8,7 @@ require_once "header.php";
 <html>
 <head>
 <title>Your Cards</title>
-<link rel="stylesheet" type="text/css" href="static/style.css">
+<link rel="stylesheet" type="text/css" href="css/yourcards.css">
 </head>
 
 <body>
@@ -25,16 +25,23 @@ if (isset($_SESSION['user_id'])) {
         $card = $value;
         echo 
             '<div class = "card">
-            <h1 id = "name">'.$card['first_name'].' '.$card['position'].'</h2><br>
-            <h2 id = "position>'.$card['position'].'</h2><br>
-            <h2 id = "business_name">'.$card['business_name'].'</h2><br>
-            <h3 id = "business_address">'.$card['business_address'].'</h3><br>
+            <span class="main_info">
+            <h2 id = "name">Name: '.$card['first_name'].' '.$card['last_name'].'</h2><br>
+            <h3 id = "position">Position:'.$card['position'].'</h3><br>
+            <h3 id = "business_name">Company: '.$card['business_name'].'</h3><br>
+            <h3 id = "business_address">Address:'.$card['business_address'].'</h3><br>
+            </span>
+            <p class = "contact">
             <a id = "business_website" href="'.$card['business_website'].'">'.$user -> id.'</a><br>
+            <br>
             <a id = "email" href="mailto:'.$card['email'].'">'.$card['email'].'</a><br>
-            <h3 id = "phone_number">'.$cars['phone_number'].'</h3>
+            <br>
+            <a id = "phone_number">'.$cars['phone_number'].'</a></p>
+            <br>
             <button id = "share_button" onclick="shareCard()">Share</button>
             <input name = "share_email" type = "hidden" action = "handler/class_card.php" method = "POST">
             </div>';
+             
         }
     }
     else {
