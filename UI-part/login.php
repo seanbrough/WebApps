@@ -27,7 +27,7 @@ require_once "header.php";
     	      
     	      
     	       <div id="wrapper" class = container>
-                              <form  action="login_handler.php" id="login" method = "POST"> 
+                              <form  action="handlers/login_handler.php" id="login" method = "POST"> 
                                 <h1>Log in</h1> 
                                     <label for="email" class="label"> Your Email Address  </label>
                                     <input id="email" name="email" class = "input" type="text" placeholder="Enter Your Email"/>
