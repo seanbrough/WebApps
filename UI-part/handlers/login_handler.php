@@ -27,6 +27,7 @@ if(isset($_POST['login'])){
         if($email === $row['email']){
              if(hash('ripemd128', Vcard::PW_SALT.$pw) === $row['password']){
              $_SESSION['luser'] = Account::get_user_by_id($row['id']);
+             $_SESSION['user_id'] = $row['id'];
              $_SESSION['alert'] = new Alert("Welcome", "Success");
              header("Location: dashboard.php");
        }else{
