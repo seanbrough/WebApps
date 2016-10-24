@@ -33,7 +33,7 @@ if (isset($_SESSION['user_id'])) {
             <a id = "email" href="mailto:'.$card['email'].'">'.$card['email'].'</a><br>
             <h3 id = "phone_number">'.$cars['phone_number'].'</h3>
             <button id = "share_button" onclick="shareCard()">Share</button>
-            <input id = "share_email" type = "hidden">
+            <input name = "share_email" type = "hidden" action = "handler/class_card.php" method = "POST">
             </div>';
         }
     }
@@ -43,9 +43,9 @@ if (isset($_SESSION['user_id'])) {
         
     }
     
-
-?>
 }
+?>
+
 
 
 </body>
