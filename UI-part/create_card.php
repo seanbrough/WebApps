@@ -16,7 +16,7 @@ require_once "header.php";
     <body>
 <div class="page_container">
 <h2>Create a new card</h2>
-    <form method="post" action="../webpages/class_card.php" class = "Info">
+    <form method="post" action="/handlers/createCard_Handler.php" class = "Info">
         <div class="left">
         <p class = "label">First Name: <br>
         <input type="text" class = "input" name="first_name"></p>

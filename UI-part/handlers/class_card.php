@@ -13,9 +13,10 @@ class Card {
     public $business_website;
     public $email;
     public $phone_number;
+    public $user_id;
     
     public function __construct($first_name, $last_name, $position, $business_name, $business_address,
-        $business_website, $email, $phone_number){
+        $business_website, $email, $phone_number, $user_id){
         
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -28,6 +29,7 @@ class Card {
         $this->business_website = $business_website;
         $this->email = $email;
         $this->phone_number = $phone_number;
+        $this->user_id = $user_id;
         
     }
     
@@ -35,16 +37,16 @@ class Card {
     
     $mysqli = new mysqli('localhost', 'admin', 'admin', 'Properties');
     
-    $sql = "INSERT INTO card (firstname, lastname, company_name, title, website, email)
+    $sql = "INSERT INTO card (firstname, lastname, company_name, title, website, email, user_id)
             VALUES ('$first_name', '$last_name', '$business_name', '$position', 
-            '$business_address', '$city', '$state', '$zipcode', '$business_website', '$email')";
+            '$business_address', '$city', '$state', '$zipcode', '$business_website', '$email', $user_id)";
             
     if (mysqli_query($mysqli, $sql)) {
         echo "New record created successfully";
-        header("Location: yourcards.php");
+        return TRUE;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
-        header("Location: create_card.php");
+        return FALSE;
     }
         
     }
