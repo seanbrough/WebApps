@@ -1,0 +1,18 @@
+
+
+body {font: 13px Helvetica, Arial, sans-serif;}
+
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+div {padding:10px 20px; border:#999 1px solid; margin: 5px; width:400px;}
+div a {float:right;}
+div span{display:inline-block; vertical-align:bottom; height:150px; padding:0 10px;}
+.card {
+	background-color:#EBFFEB; 
+}
+.contact {
+	float: right;
+	display: inline-block;
+}
