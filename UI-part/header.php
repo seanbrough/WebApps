@@ -1,5 +1,5 @@
 <?php
-require_once "class.php";
+require_once "handlers/class.php";
 session_start();
 
 if(isset($_SESSION['luser']))
