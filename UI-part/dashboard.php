@@ -79,7 +79,7 @@ if(isset($_SESSION['luser']))
           <div class = "container">
               <p><a class="button" id = "create" role="button" href="create_card.php">Create a new Card</a></p>
               <p><a class="button" id = "manage" role="button" href="yourcards.php">Manage Your Cards</a></p>
-              <p><a class="button" id = "share" role="button" href="share.php">Shared Cards</a></p>
+              <p><a class="button" id = "share" role="button" href="your_Rolodex.php">Shared Cards</a></p>
          </div>
    </body>
 </html>
