@@ -10,7 +10,7 @@ require_once "header.php";
   <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-  <form class="sign-up" action="signup_handler.php" method="POST" onsubmit="return validate_reg_form(this)">
+  <form class="sign-up" action="handlers/signup_handler.php" method="POST" onsubmit="return validate_reg_form(this)">
     <h1 class="sign-up-title">Sign up to own your business vcards</h1>
     <label for="email" class = "label">Email Address</label>
     <input type="text" class="sign-up-input" id = "inputEmail" name = "email" placeholder="Please Enter your email" >
