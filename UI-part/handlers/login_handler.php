@@ -11,7 +11,7 @@ if($mysqli->connect_error){//bad connection, just return null
        //echo "success";
 }
 if(isset($_POST['signup'])){
-    header("Location: signup.php");
+    header("Location: ../signup.php");
 }
 session_start();
 if(isset($_POST['login'])){
