@@ -35,9 +35,9 @@ class Card {
     
     public function save_card() {
     
-    $mysqli = new mysqli('localhost', 'admin', 'admin', 'Properties');
+    $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
     
-    $sql = "INSERT INTO card (firstname, lastname, company_name, title, website, email, user_id)
+    $sql = "INSERT INTO card (first_name, last_name, company_name, title, company_addr, city, state, zip, phone, website, email, user_id)
             VALUES ('$first_name', '$last_name', '$business_name', '$position', 
             '$business_address', '$city', '$state', '$zipcode', '$business_website', '$email', $user_id)";
             
@@ -168,7 +168,6 @@ class Card {
     }
 }
 
-header("Location: ../UI-part/create_card.php");
 
 
 ?>
