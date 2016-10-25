@@ -1,7 +1,6 @@
 <?php
 
 require_once "handlers/class_card.php";
-require_once "header.php";
 
 ?>
 <!DOCTYPE html>
