@@ -1,5 +1,5 @@
 <?php
-
+require_once "header.php";
 require_once "handlers/class_card.php";
 
 ?>
@@ -13,7 +13,7 @@ require_once "handlers/class_card.php";
 
 <body>
 <?php
-
+echo '<a class = "share_button" href="dashboard.php">Back to Dashboard</a>';
 session_start();
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -23,25 +23,29 @@ if (isset($_SESSION['user_id'])) {
     if (isset($shared_cards)) {
         foreach ($shared_cards as $card) {
         echo 
-            '<div class = "card">
-            <span class="main_info">
-            <h2 id = "name">Name: '.$card['first_name'].' '.$card['last_name'].'</h2><br>
-            <p id = "position">Position:'.$card['title'].'</p><br>
-            <p id = "business_name">Company: '.$card['company_name'].'</p><br>
-            <p id = "business_address">Address:'.$card['company_addr'].'</p><br>
-            </span>
-            <p class = "contact">
-            <a id = "business_website" href="'.$card['website'].'">'.$user -> id.'</a><br>
-            <br>
-            <a id = "email" href="mailto:'.$card['email'].'">'.$card['email'].'</a><br>
-            <br>
-            <a id = "phone_number">'.$card['phone'].'</a></p>
-            <br>
-            
-            <form action = "./handlers/sharedCard_Handler.php" method = "POST">
-                <input name = "share_email" id = "share_email" type = "hidden">
+            '<div class = "box">
+                <div class = "card">
+                   <div class = "main_info">
+                         <h2 id = "name"> '.$card['first_name'].' '.$card['last_name'].'</h2>
+                        <p id = "position">'.$card['title'].'</p>
+                        <p id = "phone_number">'.$card['phone'].'</p>
+                    </div>
+                    
+                    <p id = "business_name"> '.$card['company_name'].'</p>
+                    
+                    <div class = "contact">
+                    <p id = "business_website">'.$card['website'].'</p>
+                  
+                    <p id = "email" href="mailto:'.$card['email'].'">'.$card['email'].'</p>
+                    
+                    
+                    </div>
+    
+                </div>
+            <form action = "./handlers/yourCards_Handler.php" method = "POST" id = "submit">
                 <input name = "card_id" type = "hidden" value = '.$card['id'].'>
-                <button id = "share_button" type = "submit" onclick="shareCard()">Share</button>
+                <button class = "share_button"  type = "submit" onclick="shareCard()">Share It</button>
+                <br style="clear:both;">
             </form>
             </div>';
              
