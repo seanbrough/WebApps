@@ -18,10 +18,10 @@ class Alert{
 class Vcard{
      
      const MYSQL_HOSTNAME = '127.0.0.1'; 
-    //  const MYSQL_USER= 'admin';
-    const MYSQL_USER= 'severn3088';
-    const MYSQL_password= '';
-    //  const MYSQL_password = 'admin'; 
+     const MYSQL_USER= 'admin';
+    // const MYSQL_USER= 'severn3088';
+    // const MYSQL_password= '';
+     const MYSQL_password = 'admin'; 
      const MYSQL_DB = 'vcard'; 
      const PW_SALT = "g0Ut3S!";
      // username: edwardni
