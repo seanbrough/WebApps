@@ -35,9 +35,9 @@ class Card {
     
     public function save_card() {
     
-    $conn = new mysqli('localhost', 'admin', 'admin', 'vcard');
+    $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
      
-    if ($conn->connect_error) {
+    if ($mysqli->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     
@@ -73,7 +73,7 @@ class Card {
             '$business_address', '$city', '$state', '$zipcode', '$phone_number', '$business_website', '$email', $user_id)";
             
         //check results, if bad return the proper repsonse
-      if ($conn->query($sql) === TRUE) {
+      if ($mysqli->query($sql) === TRUE) {
             echo "New record created successfully";
             return TRUE;
       } else {
