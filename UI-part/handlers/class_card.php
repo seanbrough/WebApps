@@ -16,11 +16,11 @@ class Card {
     public $user_id;
     
     public function __construct($first_name, $last_name, $position, $business_name, $business_address,
-        $business_website, $email, $phone_number, $user_id){
+        $city, $state, $zipcode, $business_website, $email, $phone_number, $user_id){
         
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-        $this->postion = $position;
+        $this->position = $position;
         $this->business_name = $business_name;
         $this->business_address = $business_address;
         $this->city = $city;
@@ -35,19 +35,36 @@ class Card {
     
     public function save_card() {
     
-    $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
-    
-    $sql = "INSERT INTO card (first_name, last_name, company_name, title, company_addr, city, state, zip, phone, website, email, user_id)
-            VALUES ('$first_name', '$last_name', '$business_name', '$position', 
-            '$business_address', '$city', '$state', '$zipcode', '$business_website', '$email', $user_id)";
-            
-    if (mysqli_query($mysqli, $sql)) {
-        echo "New record created successfully";
-        return TRUE;
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
-        return FALSE;
+    $conn = new mysqli('localhost', 'admin', 'admin', 'vcard');
+     
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+    
+        $first_name = $this->first_name;
+        $last_name = $this->last_name;
+        $position = $this->position;
+        $business_name = $this->business_name;
+        $business_address = $this->business_address;
+        $city = $this->city;
+        $state = $this->state;
+        $zipcode = $this->zipcode;
+        $business_website = $this->business_website;
+        $email = $this->email;
+        $phone_number = $this->phone_number;
+        $user_id = $this->user_id;
+    
+        $sql = "INSERT INTO card (first_name, last_name, company_name, title, company_addr, city, state, zip, phone, website, email, user_id)
+            VALUES ('$first_name', '$last_name', '$business_name', '$position', 
+            '$business_address', '$city', '$state', '$zipcode', '$phone_number', '$business_website', '$email', $user_id)";
+            
+        //check results, if bad return the proper repsonse
+      if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+            return TRUE;
+      } else {
+            echo "Error: " . $sql . "<br>" . $mysqli->error;
+      }
         
     }
     

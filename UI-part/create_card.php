@@ -30,7 +30,6 @@ require_once "header.php";
         <p class = "label">Business Name: <br>
         <input type="text" class = "input" name="business_name"></p>
         </div>
-        
         <div class="right">
         <p class = "label">Business Street Address: <br>
         <input type="text" class = "input" name="business_address"></p>
