@@ -16,7 +16,7 @@ require_once "header.php";
     	      <h1>  Welcome to design your own business vcards!</h1>
     	      
     	      
-    	      <div id = "intro" style="float:left;width:800px">
+    	      <div id = "intro" style="float:left;width:700px">
     	          <h2>Vcard</h2>
     	          <h3>vCard is a file format standard for electronic business cards. 
     	               vCards are often attached to e-mail messages, but can be exchanged in other ways,
