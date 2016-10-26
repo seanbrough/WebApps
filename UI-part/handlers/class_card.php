@@ -119,24 +119,34 @@ class Card {
     }
     
     public function share_card($email, $card_id, $from_id) {
-        $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
+        $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
         if($mysqli->connect_error) {
             $_SESSION['alert'] = new Alert($mysqli->connect_error, 'danger');
             return null;
             header("Location: yourcards.php");
         }
         
-        $query = "INSERT INTO shared (to_id, from_id, card_id) VALUES 
+        $prequery = "SELECT id FROM user WHERE email = '$email'";
+        $first_result = $mysqli->query($prequery);
+        if (isset($first_result)) {
+            $first_array = mysqli_fetch_array($first_result);
+            $to_id = $first_array[0];
+        }
+        else {
+           $message = new Alert('Else we are graduating sucks to suck bro', 'warning');
+        }
+        
+        $query = "INSERT INTO share (to_id, from_id, card_id) VALUES 
         ('$to_id', '$from_id', '$card_id')";
         $result = $mysqli->query($query);
         if (isset($result)) {
-            $message = new Alert('Card Successfully shared','success');
-            header("Location: yourcards.php");
+            // $message = new Alert('Card Successfully shared','success');
+            header("Location: ../yourcards.php");
         }
    }
    
     public function get_shared_cards($user_id) {
-        $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
+        $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
         if($mysqli->connect_error) {
             $_SESSION['alert'] = new Alert($mysqli->connect_error, 'danger');
             return null;
@@ -144,9 +154,26 @@ class Card {
         }
         
         $query = "SELECT * FROM card INNER JOIN share ON share.card_id = card.id
-        WHERE share.to_id = $user_id";
+        WHERE share.to_id = '$user_id'";
+        
+        $result = $mysqli->query($query);
+        $results = array();
+        $length = $result->num_rows;
+        $i = 0;
+        if (isset($result)) {
+            while(($i < $length)) {
+                   $results[] = mysqli_fetch_assoc($result);
+                   $i++;
+            }
+            return $results;
+        }
+        else {
+            $message = new Alert('There was a problem fetching your cards, 
+            try again later', 'warning');
+            header("Location: your_Rolodex.php");
     }
     
+}
     public function delete_owned_card($user_id, $card_id) {
         $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
         if($mysqli->connect_error) {

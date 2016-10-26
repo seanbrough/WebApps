@@ -1,13 +1,7 @@
-// <? php
-// require "class_card.php";
+// <?php
+require "class_card.php";
+session_start();
 
-// $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
+card::share_card($_POST['share_email'], $_POST['card_id'], $_SESSION['user_id'] );
 
-// if($mysqli->connect_error){//bad connection, just return null
-//      $_SESSION['alert'] = new alert($mysqli->connect_error, 'danger');
-//      header("Location: login.php");
-     
-// if isset($_POST['friend_email']) {
-    
-// }
 // ?>

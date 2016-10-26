@@ -37,8 +37,12 @@ if (isset($_SESSION['user_id'])) {
             <br>
             <a id = "phone_number">'.$card['phone'].'</a></p>
             <br>
-            <button id = "share_button" onclick="shareCard()">Share</button>
-            <input id ='.$card['card_id'].'name = "share_email" type = "hidden" action = "../handlers/sharedCard_Handler.php" method = "POST">
+            
+            <form action = "./handlers/sharedCard_Handler.php" method = "POST">
+                <input name = "share_email" id = "share_email" type = "hidden">
+                <input name = "card_id" type = "hidden" value = '.$card['id'].'>
+                <button id = "share_button" type = "submit" onclick="shareCard()">Share</button>
+            </form>
             </div>';
              
         }

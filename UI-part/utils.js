@@ -25,6 +25,7 @@ function shareCard() {
           alert("Please enter user's email address");
      }
      else {
-          document.getElementsByName('share_email').value = shareEmail;
+          document.getElementById('share_email').value = shareEmail;
+          console.log(document.getElementById('share_email').value);
      }
 }
