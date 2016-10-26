@@ -77,9 +77,15 @@ class Card {
         }
         $query = "SELECT * FROM card where user_id = '$user_id'";
         $result = $mysqli->query($query);
+        $results = array();
+        $length = $result->num_rows;
+        $i = 0;
         if (isset($result)) {
-            $result_array = mysqli_fetch_assoc($results);
-            return $result_array;
+            while(($i < $length)) {
+                   $results[] = mysqli_fetch_assoc($result);
+                   $i++;
+            }
+            return $results;
         }
         else {
             $message = new Alert('There was a problem fetching your cards, 
@@ -87,7 +93,6 @@ class Card {
             header("Location: yourcard.php");
         }
     }
-    
     public function get_user_by_card($card_id) {
         $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
         if($mysqli->connect_error) {
@@ -102,7 +107,7 @@ class Card {
         $result = $mysqli->query($query);
         
         if (isset($result)) {
-            $result_array = mysqli_fetch_assoc($results);
+            $result_array = mysqli_fetch_assoc($result);
             header("Location: yourcards.php");
             return $result_array;
         }
@@ -113,7 +118,7 @@ class Card {
         
     }
     
-    public function share_card($to_id, $card_id, $from_id) {
+    public function share_card($email, $card_id, $from_id) {
         $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
         if($mysqli->connect_error) {
             $_SESSION['alert'] = new Alert($mysqli->connect_error, 'danger');
