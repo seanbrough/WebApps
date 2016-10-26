@@ -29,11 +29,11 @@ require_once "header.php";
         <br>
         <p class = "label">Business Name: <br>
         <input type="text" class = "input" name="business_name"></p>
-        </div>
-        <div class="right">
+        <br>
         <p class = "label">Business Street Address: <br>
         <input type="text" class = "input" name="business_address"></p>
-        <br>
+        </div>
+        <div class="right">
         <p class = "label">City: <br>
         <input type="text" class = "input" name="city"></p>
         <br>
