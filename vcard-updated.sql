@@ -25,7 +25,7 @@ USE `vcard`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Info`
+-- Table structure for table `card`
 --
 
 CREATE TABLE `card` (
@@ -41,16 +41,15 @@ CREATE TABLE `card` (
   `zip` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `website` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `color` varchar(20) COLLATE utf8_unicode_ci,
   `creation_date` datetime NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Info`
+-- Dumping data for table `card`
 --
 
-INSERT INTO `Info` (`id`, `first_name`, `last_name`, `company_name`, `title`, `company_addr`, `city`, `state`, `zip`, `phone`, `website`, `user_id`) VALUES
+INSERT INTO `card` (`id`, `first_name`, `last_name`, `business_name`, `title`, `business_address`, `city`, `state`, `zip`, `phone`, `website`, `user_id`) VALUES
 (1, 'Karl', 'Klonowski', 'Rossi, Michael M', 'Customer Manager', '76 Brooks St #9', 'Flemington', 'NJ', '08822', '908-877-6135', 'http://www.rossimichaelm.com', 1),
 (2, 'Tonette', 'Wenner', 'Northwest Publishing', 'Branch Manager ', '4545 Courthouse Rd', 'Westbury', 'NY', '11590', '516-968-6051', 'http://www.northwestpublishing.com', 2),
 (3, 'Amber', 'Monarrez', 'Branford Wire & Mfg Co', 'Operations Manager', '14288 Foster Ave #4121', 'Jenkintown', 'PA', '19046', '215-934-8655', 'http://www.branfordwiremfgco.com', 3),
@@ -61,7 +60,7 @@ INSERT INTO `Info` (`id`, `first_name`, `last_name`, `company_name`, `title`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `card`
+-- Table structure for table `info`
 --
 
 CREATE TABLE `info` (
@@ -72,18 +71,18 @@ CREATE TABLE `info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `card`
+-- Dumping data for table `info`
 --
 
-INSERT INTO `card` (`id`, `color`, `make_date`, `user_id`) VALUES
-(1, 'black', '2016-10-06 04:20:28', 1),
-(2, 'white', '2016-10-05 02:24:32', 2),
-(3, 'blue', '2016-10-07 04:26:37', 2),
-(4, 'green', '2016-10-07 07:41:42', 3),
-(5, 'white', '2016-10-08 16:15:41', 4),
-(6, 'red', '2016-10-08 18:32:35', 5),
-(7, 'rgb(182,192,25)', '2016-10-08 18:26:33', 5),
-(8, 'rgb(125,132,25)', '2016-10-08 04:20:36', 6);
+INSERT INTO `info` (`id`, `make_date`, `user_id`) VALUES
+(1, '2016-10-06 04:20:28', 1),
+(2, '2016-10-05 02:24:32', 2),
+(3, '2016-10-07 04:26:37', 2),
+(4, '2016-10-07 07:41:42', 3),
+(5, '2016-10-08 16:15:41', 4),
+(6, '2016-10-08 18:32:35', 5),
+(7, '2016-10-08 18:26:33', 5),
+(8, '2016-10-08 04:20:36', 6);
 
 -- --------------------------------------------------------
 
@@ -146,14 +145,14 @@ INSERT INTO `user` (`id`, `email`, `password`, `signup_date`) VALUES
 --
 -- Indexes for table `Info`
 --
-ALTER TABLE `Info`
+ALTER TABLE `card`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `card`
 --
-ALTER TABLE `card`
+ALTER TABLE `info`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Foreign_key` (`user_id`);
 
@@ -179,12 +178,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for table `Info`
 --
-ALTER TABLE `Info`
+ALTER TABLE `card`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `card`
 --
-ALTER TABLE `card`
+ALTER TABLE `info`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `share`
@@ -203,13 +202,13 @@ ALTER TABLE `user`
 --
 -- Constraints for table `Info`
 --
-ALTER TABLE `Info`
+ALTER TABLE `card`
   ADD CONSTRAINT `fk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `card`
 --
-ALTER TABLE `card`
+ALTER TABLE `info`
   ADD CONSTRAINT `fk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --

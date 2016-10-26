@@ -1,5 +1,5 @@
 <?php
-
+require "class.php";
 class Card {
     
     public $first_name;
@@ -53,6 +53,20 @@ class Card {
         $email = $this->email;
         $phone_number = $this->phone_number;
         $user_id = $this->user_id;
+        
+        //sanitize
+        $first_name = $mysqli->real_escape_string($this->first_name);
+        $last_name = $mysqli->real_escape_string($this->last_name);
+        $position = $mysqli->real_escape_string($this->position);
+        $business_name = $mysqli->real_escape_string($this->business_name);
+        $business_address = $mysqli->real_escape_string($this->business_address);
+        $city = $mysqli->real_escape_string($this->city);
+        $state = $mysqli->real_escape_string($this->state);
+        $zipcode = $mysqli->real_escape_string($this->zipcode);
+        $business_website = $mysqli->real_escape_string($this->business_website);
+        $email = $mysqli->real_escape_string($this->email);
+        $phone_number = $mysqli->real_escape_string($this->phone_number);
+        $user_id = $mysqli->real_escape_string($this->user_id);
     
         $sql = "INSERT INTO card (first_name, last_name, company_name, title, company_addr, city, state, zip, phone, website, email, user_id)
             VALUES ('$first_name', '$last_name', '$business_name', '$position', 
@@ -75,6 +89,7 @@ class Card {
             return null;
             header("Location: front_page.php");
         }
+        $user_id = $mysqli->real_escape_string($user_id);
         $query = "SELECT * FROM card where user_id = '$user_id'";
         $result = $mysqli->query($query);
         $results = array();
@@ -101,6 +116,7 @@ class Card {
             header("Location: front_page.php");
         }
         
+        $card_id = $mysqli->real_escape_string($card_id);
         $query = "SELECT * FROM user INNER JOIN card
             ON user.id = card.user_id WHERE card.user_id = '$card_id'";
         
@@ -126,6 +142,9 @@ class Card {
             header("Location: yourcards.php");
         }
         
+        $email = $mysqli->real_escape_string($email);
+        $card_id = $mysqli->real_escape_string($card_id);
+        $from_id = $mysqli->real_escape_string($from_id);
         $prequery = "SELECT id FROM user WHERE email = '$email'";
         $first_result = $mysqli->query($prequery);
         if (isset($first_result)) {
@@ -140,7 +159,7 @@ class Card {
         ('$to_id', '$from_id', '$card_id')";
         $result = $mysqli->query($query);
         if (isset($result)) {
-            // $message = new Alert('Card Successfully shared','success');
+            $message = new Alert('Card Successfully shared','success');
             header("Location: ../yourcards.php");
         }
    }
@@ -152,7 +171,7 @@ class Card {
             return null;
             header("Location: yourcards.php");
         }
-        
+        $user_id = $mysqli->real_escape_string($user_id);
         $query = "SELECT * FROM card INNER JOIN share ON share.card_id = card.id
         WHERE share.to_id = '$user_id'";
         
@@ -182,6 +201,8 @@ class Card {
             header("Location: yourcards.php");
         }
         
+        $user_id = $mysqli->real_escape_string($user_id);
+        $card_id = $mysqli->real_escape_string($card_id);
         $query = "DELETE FROM card WHERE id = '$card_id' AND user_id = '$user_id'";
         
         $result = $mysqli->query($query);
@@ -204,6 +225,7 @@ class Card {
             header("Location: yourcards.php");
         }
         
+        $card_id = $mysqli->real_escape_string($card_id);
         $query = "DELETE FROM shared WHERE card_id = '$card_id'";
         $result = $mysqli->query($query);
         if (isset($result)) {
