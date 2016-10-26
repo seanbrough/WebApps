@@ -69,7 +69,7 @@ class Card {
     }
     
     public function get_cards_by_user($user_id) {
-        $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
+        $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
         if($mysqli->connect_error) {
             $_SESSION['alert'] = new Alert($mysqli->connect_error, 'danger');
             return null;
@@ -89,15 +89,15 @@ class Card {
     }
     
     public function get_user_by_card($card_id) {
-        $mysqli = new mysqli(Vcard::MYSQL_HOSTNAME, Vcard::MYSQL_USER, Vcard::MYSQL_password, Vcard::MYSQL_DB);
+        $mysqli = new mysqli('localhost', 'admin', 'admin', 'vcard');
         if($mysqli->connect_error) {
             $_SESSION['alert'] = new Alert($mysqli->connect_error, 'danger');
             return null;
             header("Location: front_page.php");
         }
         
-        $query = "SELECT user.email FROM user INNER JOIN card
-            ON user.id = card.user_id WHERE card.id = '$card_id'";
+        $query = "SELECT * FROM user INNER JOIN card
+            ON user.id = card.user_id WHERE card.user_id = '$card_id'";
         
         $result = $mysqli->query($query);
         

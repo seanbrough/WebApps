@@ -17,7 +17,7 @@ session_start();
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     
-    $shared_cards = card::get_cards_by_id($user_id);
+    $shared_cards = card::get_user_by_card($user_id);
     
     if (isset($shared_cards)) {
         foreach ($shared_cards as $value) {
@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
             <br>
             <a id = "email" href="mailto:'.$card['email'].'">'.$card['email'].'</a><br>
             <br>
-            <a id = "phone_number">'.$cars['phone_number'].'</a></p>
+            <a id = "phone_number">'.$card['phone_number'].'</a></p>
             <br>
             <button id = "share_button" onclick="shareCard()">Share</button>
             <input name = "share_email" type = "hidden" action = "handler/class_card.php" method = "POST">
